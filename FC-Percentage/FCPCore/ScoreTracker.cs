@@ -27,7 +27,7 @@ namespace FCPercentage.FCPCore
 
 		private int noteCount;
 
-		private PlayerLevelStatsData GetPlayerLevelStatsData(PlayerDataModel playerDataModel, IDifficultyBeatmap beatmap) => playerDataModel.playerData.GetPlayerLevelStatsData(beatmap);
+		private PlayerLevelStatsData GetPlayerLevelStatsData(PlayerDataModel playerDataModel, BeatmapKey beatmap) => playerDataModel.playerData.TryGetPlayerLevelStatsData(beatmap);
 
 		public ScoreTracker(SiraLog logger, [InjectOptional] ScoreController scoreController, [InjectOptional] ComboController comboController, ScoreManager scoreManager)
 		{
@@ -49,7 +49,7 @@ namespace FCPercentage.FCPCore
 				return;
 
 			// Reset ScoreManager at level start
-			PlayerLevelStatsData stats = GetPlayerLevelStatsData(playerDataModel, sceneSetupData.difficultyBeatmap);
+			PlayerLevelStatsData stats = GetPlayerLevelStatsData(playerDataModel, sceneSetupData.beatmapKey);
 			scoreManager.ResetScoreManager(stats, sceneSetupData.transformedBeatmapData, sceneSetupData.colorScheme);
 
 			// Set function for multiplier according to setting
