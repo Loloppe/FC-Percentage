@@ -110,7 +110,7 @@ namespace FCPercentage.FCPResults.HUD
 
 		private void ParseBSML(string bsmlPath, GameObject parentGameObject)
 		{
-			BSMLParser.instance.Parse(Utilities.GetResourceContent(Assembly.GetExecutingAssembly(), bsmlPath), parentGameObject, this);
+			BSMLParser.Instance.Parse(Utilities.GetResourceContent(Assembly.GetExecutingAssembly(), bsmlPath), parentGameObject, this);
 		}
 
 		internal void SetResultsViewText()

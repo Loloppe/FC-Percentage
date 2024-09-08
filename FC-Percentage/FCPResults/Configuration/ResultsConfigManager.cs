@@ -16,7 +16,7 @@ namespace FCPercentage.FCPResults.Configuration
 
 		public void Initialize()
 		{
-			BSMLSettings.instance.AddSettingsMenu(Plugin.PluginName, "FCPercentage.FCPResults.Configuration.BSML.ResultsSettings.bsml", configHost);
+			BSMLSettings.Instance.AddSettingsMenu(Plugin.PluginName, "FCPercentage.FCPResults.Configuration.BSML.ResultsSettings.bsml", configHost);
 		}
 
 		public void Dispose()
@@ -24,7 +24,7 @@ namespace FCPercentage.FCPResults.Configuration
 			if (configHost == null)
 				return;
 
-			BSMLSettings.instance.RemoveSettingsMenu(configHost);
+			BSMLSettings.Instance.RemoveSettingsMenu(configHost);
 			configHost = null!;
 		}
 	}
