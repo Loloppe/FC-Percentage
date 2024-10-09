@@ -44,12 +44,14 @@ namespace FCPercentage.FCPCore
 
 		public void Initialize()
 		{
-			// Do not initialize if either of these are null
-			if (playerDataModel == null || sceneSetupData == null)
+			// Do not initialize if one of those are null
+			if (playerDataModel == null || sceneSetupData == null || scoreManager == null)
 				return;
 
 			// Reset ScoreManager at level start
 			PlayerLevelStatsData stats = GetPlayerLevelStatsData(playerDataModel, sceneSetupData.beatmapKey);
+			if (stats == null || sceneSetupData.transformedBeatmapData == null)
+				return;
 			scoreManager.ResetScoreManager(stats, sceneSetupData.transformedBeatmapData, sceneSetupData.colorScheme);
 
 			// Set function for multiplier according to setting
